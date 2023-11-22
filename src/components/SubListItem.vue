@@ -408,7 +408,7 @@
   };
 
   const onClickEdit = () => {
-    router.push(`/edit/${props.type}s/${name}`);
+    router.push(`/edit/${props.type}s/${encodeURIComponent(name)}`);
   };
 
   const onClickDelete = () => {
