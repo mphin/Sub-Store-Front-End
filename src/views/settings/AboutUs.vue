@@ -12,7 +12,7 @@
             <template v-slot:title>
               <span
                 >{{ $t(`aboutUsPage.projectInfo.fe`) }}
-                <b class="bclass">v2.14.16</b></span
+                <b class="bclass">v{{ version }}</b></span
               >
             </template>
           </nut-cell>
@@ -28,16 +28,6 @@
                 <b v-if="env.hasNewVersion" class="bclass"><a target="_blank" :href="env.backend === 'Node' ? 'https://github.com/sub-store-org/Sub-Store/releases' : 'https://github.com/sub-store-org/Sub-Store/tree/master/config'"><nut-badge value="NEW">v{{env.version}}</nut-badge></a></b>
                 <b v-else class="bclass">v{{ env.version }}</b>
               </span>
-            </template>
-          </nut-cell>
-
-          <nut-cell
-            class="cell-item"
-            :desc="$t(`aboutUsPage.projectInfo.link`)"
-            url="https://github.com/Keywos/rule/raw/main/module/Sub-Store-Mock.sgmodule"
-          >
-            <template v-slot:title>
-              <span>{{ $t(`aboutUsPage.projectInfo.mock`) }}</span>
             </template>
           </nut-cell>
 
@@ -129,6 +119,8 @@
 
   const changelogs = useChangelogs();
   const active = ref(changelogs[0].date.format('YYYY-MM-DD'));
+
+  const version = import.meta.env.PACKAGE_VERSION
 </script>
 
 <style lang="scss" scoped>
